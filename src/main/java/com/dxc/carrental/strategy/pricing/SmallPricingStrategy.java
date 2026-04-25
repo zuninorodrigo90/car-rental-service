@@ -1,7 +1,9 @@
 package com.dxc.carrental.strategy.pricing;
 
-public class SmallPricingStrategy implements PricingStrategy {
+import org.springframework.stereotype.Component;
 
+@Component
+public class SmallPricingStrategy implements PricingStrategy {
 
     @Override
     public double calculatePrice(double basePrice, int days) {

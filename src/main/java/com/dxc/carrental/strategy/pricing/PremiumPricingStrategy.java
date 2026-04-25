@@ -1,5 +1,8 @@
 package com.dxc.carrental.strategy.pricing;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class PremiumPricingStrategy implements PricingStrategy {
 
     @Override
