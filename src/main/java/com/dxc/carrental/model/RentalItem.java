@@ -1,7 +1,9 @@
 package com.dxc.carrental.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
+@Data
 @Entity
 public class RentalItem {
     @Id

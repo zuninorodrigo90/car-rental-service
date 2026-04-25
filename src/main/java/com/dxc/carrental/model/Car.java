@@ -2,7 +2,9 @@ package com.dxc.carrental.model;
 
 import com.dxc.carrental.model.enums.CarType;
 import jakarta.persistence.*;
+import lombok.Data;
 
+@Data
 @Entity
 public class Car {
     @Id

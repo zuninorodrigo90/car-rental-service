@@ -2,11 +2,13 @@ package com.dxc.carrental.model;
 
 import com.dxc.carrental.model.enums.RentalStatus;
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.time.LocalDate;
 import java.util.List;
 
 @Entity
+@Data
 public class Rental {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
