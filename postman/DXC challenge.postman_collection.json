@@ -1,0 +1,127 @@
+{
+  "info": {
+    "_postman_id": "2f8df4d4-e8b2-4375-95c9-a51e175a2680",
+    "name": "DXC challenge",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "52702029"
+  },
+  "item": [
+    {
+      "name": "customers",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/customers",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "customers"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "rent cars",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"customerDni\": \"30111222\",\n  \"patents\": [\"CCC112\", \"AAA112\"],\n  \"startDate\": \"2026-04-26\",\n  \"expectedReturnDate\": \"2026-04-28\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/rentals",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "rentals"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "return rental",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"actualReturnDate\": \"2026-04-28\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/rentals/return/79d04234-e1f6-414e-8717-8bcbd78a376f",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "rentals",
+            "return",
+            "79d04234-e1f6-414e-8717-8bcbd78a376f"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "cars",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/cars",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "cars"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "rentals by customer id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/rentals/customer/e108a87f-bce7-4b6d-afc0-ee5fc2eee6d1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "rentals",
+            "customer",
+            "e108a87f-bce7-4b6d-afc0-ee5fc2eee6d1"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
