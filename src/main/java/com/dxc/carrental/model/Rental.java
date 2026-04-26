@@ -24,5 +24,5 @@ public class Rental {
     private double finalTotalPrice;
     @OneToMany(cascade = CascadeType.ALL)
     private List<RentalItem> items;
-    private int loyaltyPoints;
+    private int earnedLoyaltyPoints;
 }

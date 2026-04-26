@@ -1,11 +1,14 @@
 package com.dxc.carrental.dto.request;
 
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import jakarta.validation.constraints.NotNull;
+import lombok.Getter;
 
 import java.time.LocalDate;
 
-@Data
+@Getter
 public class ReturnRentalRequest {
-    private String rentalId;
+    @NotNull(message = "actualReturnDate is required")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate actualReturnDate;
 }
