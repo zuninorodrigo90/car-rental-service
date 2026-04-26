@@ -46,10 +46,6 @@ public class RentalService {
 
         List<Car> cars = carRepository.findAllByPatentInAndAvailableTrue(rentCarsRequest.getPatents());
 
-        List<RentalItem> items = new ArrayList<>();
-        int loyaltyPoints = 0;
-        double estimatedTotalPrice = 0;
-
         if (cars.size() != rentCarsRequest.getPatents().size()) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "One or more cars were not found or are not available");
         }
@@ -59,6 +55,10 @@ public class RentalService {
         }
 
         long rentalDays = ChronoUnit.DAYS.between(rentCarsRequest.getStartDate(), rentCarsRequest.getExpectedReturnDate());
+
+        List<RentalItem> items = new ArrayList<>();
+        int loyaltyPoints = 0;
+        double estimatedTotalPrice = 0;
 
         for (Car car : cars) {
             PricingStrategy pricingStrategy = pricingStrategyFactory.getPricingStrategy(car.getType());
@@ -131,5 +131,13 @@ public class RentalService {
         return carRepository.findFirstByType(CarType.SMALL)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Small car price not found"))
                 .getPrice();
+    }
+
+    public List<Rental> findRentals(String customerId) {
+        List<Rental> rentalList = rentalRepository.findByCustomerId(customerId);
+        if (rentalList.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Rental not found for that customer id");
+        }
+        return rentalList;
     }
 }

@@ -22,7 +22,7 @@ public class Rental {
     private LocalDate actualReturnDate;
     private double estimatedTotalPrice;
     private double finalTotalPrice;
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<RentalItem> items;
     private int earnedLoyaltyPoints;
 }
